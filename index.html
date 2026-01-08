@@ -2,20 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Processing</title>
+
+<!-- THIS LINE IS CRITICAL -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Status</title>
 
 <style>
-body {
+html, body {
     margin: 0;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    background: #ffffff;
+    padding: 0;
+    width: 100vw;
     height: 100vh;
+    font-family: system-ui, -apple-system, Roboto, Arial, sans-serif;
+    background: #ffffff;
 }
 
+/* FORCE FULL SCREEN */
 .screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
     height: 100vh;
-    padding: 22px;
+    padding: 6vw;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,29 +34,29 @@ body {
 
 /* LOADING */
 .title {
-    font-size: 30px;
+    font-size: 7vw;
     font-weight: 700;
     color: #0b5ed7;
-    margin-bottom: 12px;
+    margin-bottom: 3vw;
 }
 
 .subtitle {
-    font-size: 18px;
+    font-size: 4.5vw;
     color: #555;
-    margin-bottom: 30px;
+    margin-bottom: 8vw;
 }
 
 .progress {
-    height: 10px;
     width: 100%;
-    background: #e6ebf1;
-    border-radius: 20px;
+    height: 2.2vw;
+    background: #e5eaf0;
+    border-radius: 10vw;
     overflow: hidden;
 }
 
 .fill {
-    height: 100%;
     width: 0%;
+    height: 100%;
     background: #0b5ed7;
     animation: load 4s forwards;
 }
@@ -55,8 +66,8 @@ body {
 }
 
 .loading-text {
-    margin-top: 22px;
-    font-size: 18px;
+    margin-top: 6vw;
+    font-size: 4.5vw;
     color: #444;
 }
 
@@ -66,48 +77,48 @@ body {
 }
 
 .status {
-    font-size: 26px;
+    font-size: 6.5vw;
     font-weight: 700;
     color: #b02a37;
-    margin-bottom: 18px;
+    margin-bottom: 5vw;
 }
 
 .amount {
-    font-size: 54px;
+    font-size: 12vw;
     font-weight: 800;
     color: #b02a37;
-    margin-bottom: 8px;
+    margin-bottom: 2vw;
 }
 
 .amount-sub {
-    font-size: 20px;
+    font-size: 4.8vw;
     color: #555;
-    margin-bottom: 26px;
+    margin-bottom: 6vw;
 }
 
 .info {
-    font-size: 18px;
+    font-size: 4.6vw;
     color: #333;
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
 .info p {
-    margin: 10px 0;
+    margin: 2.5vw 0;
 }
 
 .note {
-    margin-top: 30px;
-    padding-top: 18px;
-    border-top: 1px solid #ddd;
-    font-size: 17px;
+    margin-top: 7vw;
+    padding-top: 4vw;
+    border-top: 0.3vw solid #ddd;
+    font-size: 4.2vw;
     color: #666;
 }
 
 .sim {
-    margin-top: 22px;
-    font-size: 13px;
-    color: #aaa;
+    margin-top: 6vw;
     text-align: center;
+    font-size: 3.5vw;
+    color: #aaa;
 }
 </style>
 </head>
@@ -144,7 +155,7 @@ body {
         </div>
 
         <div class="note">
-            If this transaction was not intended, immediate security review is recommended.
+            If this activity was not intended, immediate security review is recommended.
         </div>
 
         <div class="sim">Simulation</div>
