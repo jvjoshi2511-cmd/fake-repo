@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Transaction Status</title>
+<title>Status</title>
 
 <style>
 html, body {
@@ -24,7 +24,7 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: background 0.3s ease;
+    transition: background 0.4s ease;
 }
 
 /* LOADING */
@@ -69,44 +69,51 @@ html, body {
 /* RESULT */
 .result {
     display: none;
+    animation: shake 0.35s ease-in-out;
 }
 
-/* ALERT BAR */
-.alert-bar {
-    background: #f1f3f5;
-    border-left: 1.2vw solid #b02a37;
-    padding: 4vw;
-    margin-bottom: 8vw;
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-1.2vw); }
+    50% { transform: translateX(1.2vw); }
+    75% { transform: translateX(-0.8vw); }
+    100% { transform: translateX(0); }
 }
 
-.alert-title {
-    font-size: 6vw;
+/* ALERT BANNER */
+.alert {
+    background: #b02a37;
+    color: #fff;
+    font-size: 5vw;
     font-weight: 800;
-    color: #b02a37;
-    letter-spacing: 0.2vw;
-}
-
-.alert-sub {
-    font-size: 4.2vw;
-    color: #444;
-    margin-top: 1.5vw;
+    text-align: center;
+    padding: 3vw;
+    border-radius: 3vw;
+    margin-bottom: 6vw;
+    letter-spacing: 0.5vw;
 }
 
 /* AMOUNT */
 .amount {
-    font-size: 13vw;
+    font-size: 12vw;
     font-weight: 800;
-    color: #111;
+    color: #b02a37;
     margin-bottom: 2vw;
+    animation: pulse 0.6s ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
 }
 
 .amount-sub {
     font-size: 4.8vw;
-    color: #555;
-    margin-bottom: 7vw;
+    color: #333;
+    margin-bottom: 6vw;
 }
 
-/* DETAILS */
 .info {
     font-size: 4.6vw;
     color: #333;
@@ -114,14 +121,14 @@ html, body {
 }
 
 .info p {
-    margin: 2.2vw 0;
+    margin: 2.5vw 0;
 }
 
 .sim {
-    margin-top: 7vw;
+    margin-top: 6vw;
     text-align: center;
     font-size: 3.5vw;
-    color: #999;
+    color: #888;
 }
 </style>
 </head>
@@ -133,34 +140,31 @@ html, body {
     <!-- LOADING -->
     <div id="loading">
         <div class="title">Reward Claim in Progress</div>
-        <div class="subtitle">Please do not close this page</div>
+        <div class="subtitle">Do not close this page</div>
 
         <div class="progress">
             <div class="fill"></div>
         </div>
 
         <div class="loading-text">
-            Verifying reward eligibility…
+            Verifying eligibility and account details…
         </div>
     </div>
 
     <!-- RESULT -->
     <div id="result" class="result">
-        <div class="alert-bar">
-            <div class="alert-title">DEBITED</div>
-            <div class="alert-sub">Transaction completed successfully</div>
-        </div>
+        <div class="alert">DEBIT ALERT</div>
 
         <div class="amount">₹9,999</div>
-        <div class="amount-sub">Amount deducted from account</div>
+        <div class="amount-sub">Amount debited from linked account</div>
 
         <div class="info">
-            <p>• Transaction processed</p>
-            <p>• Reference ID generated</p>
-            <p>• Account activity updated</p>
+            <p>• Authorization completed</p>
+            <p>• Transaction reference generated</p>
+            <p>• Account activity recorded</p>
         </div>
 
-        <div class="sim"></div>
+        <div class="sim">Simulation</div>
     </div>
 
 </div>
@@ -169,7 +173,7 @@ html, body {
 setTimeout(() => {
     document.getElementById("loading").style.display = "none";
     document.getElementById("result").style.display = "block";
-    document.getElementById("screen").style.background = "#fafafa";
+    document.getElementById("screen").style.background = "#fdecee";
 }, 4200);
 </script>
 
