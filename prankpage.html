@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reward Status</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: #eef2f6;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 92%;
+    max-width: 380px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    padding: 24px;
+}
+
+/* HEADER */
+.header {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0b5ed7;
+    margin-bottom: 6px;
+}
+
+.subheader {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* LOADING */
+.progress {
+    height: 6px;
+    background: #e4e8ee;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.fill {
+    width: 0%;
+    height: 100%;
+    background: #0b5ed7;
+    animation: load 4s forwards;
+}
+
+@keyframes load {
+    to { width: 100%; }
+}
+
+.loading-text {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* RESULT */
+.result {
+    display: none;
+}
+
+.status-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #b02a37;
+    margin-bottom: 14px;
+}
+
+.amount {
+    font-size: 32px;
+    font-weight: 700;
+    color: #b02a37;
+    margin-bottom: 6px;
+}
+
+.amount-sub {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 16px;
+}
+
+.details {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.5;
+}
+
+.details p {
+    margin: 6px 0;
+}
+
+.note {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #e0e0e0;
+    font-size: 13px;
+    color: #666;
+}
+
+.sim {
+    text-align: center;
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card">
+
+        <!-- STEP 1: PROCESSING -->
+        <div id="loading">
+            <div class="header">Reward Claim in Progress</div>
+            <div class="subheader">Please do not close or refresh this page</div>
+
+            <div class="progress">
+                <div class="fill"></div>
+            </div>
+
+            <div class="loading-text">
+                Verifying reward eligibility and account details…
+            </div>
+        </div>
+
+        <!-- STEP 2: RESULT -->
+        <div id="result" class="result">
+            <div class="status-title">Transaction Status</div>
+
+            <div class="amount">₹9,999</div>
+            <div class="amount-sub">Debited from linked account</div>
+
+            <div class="details">
+                <p>• Transaction reference generated</p>
+                <p>• Authorization completed</p>
+                <p>• Account activity recorded</p>
+            </div>
+
+            <div class="note">
+                If this transaction was not expected, immediate action may be required to secure your account.
+            </div>
+
+            <div class="sim">Simulation</div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+setTimeout(() => {
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("result").style.display = "block";
+}, 4200);
+</script>
+
+</body>
+</html>
