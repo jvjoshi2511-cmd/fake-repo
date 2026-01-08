@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reward Status</title>
 
 <style>
@@ -10,42 +11,48 @@ body {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     background: #eef2f6;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .container {
-    width: 92%;
-    max-width: 380px;
+    height: 100vh;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .card {
     background: #ffffff;
-    border-radius: 14px;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    width: 100%;
+    max-width: 420px;
+    height: 100%;
+    border-radius: 18px;
+    box-shadow: 0 14px 32px rgba(0,0,0,0.15);
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* HEADER */
+/* TEXT SIZES — MOBILE FIRST */
 .header {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 700;
     color: #0b5ed7;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
 }
 
 .subheader {
-    font-size: 14px;
+    font-size: 16px;
     color: #666;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
-/* LOADING */
+/* PROGRESS BAR */
 .progress {
-    height: 6px;
+    height: 8px;
     background: #e4e8ee;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
 }
 
@@ -61,54 +68,61 @@ body {
 }
 
 .loading-text {
-    margin-top: 12px;
-    font-size: 14px;
+    margin-top: 16px;
+    font-size: 16px;
     color: #555;
 }
 
 /* RESULT */
 .result {
     display: none;
+    text-align: left;
 }
 
 .status-title {
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 22px;
+    font-weight: 700;
     color: #b02a37;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
 }
 
 .amount {
-    font-size: 32px;
-    font-weight: 700;
+    font-size: 42px;
+    font-weight: 800;
     color: #b02a37;
     margin-bottom: 6px;
 }
 
 .amount-sub {
-    font-size: 14px;
+    font-size: 16px;
     color: #555;
-    margin-bottom: 16px;
+    margin-bottom: 22px;
 }
 
 .details {
-    font-size: 14px;
+    font-size: 16px;
     color: #444;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .details p {
-    margin: 6px 0;
+    margin: 10px 0;
 }
 
 .note {
-    margin-top: 16px;
-    padding-top: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
     border-top: 1px solid #e0e0e0;
-    font-size: 13px;
+    font-size: 15px;
     color: #666;
 }
 
+.sim {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+}
 </style>
 </head>
 
@@ -117,10 +131,10 @@ body {
 <div class="container">
     <div class="card">
 
-        <!-- STEP 1: PROCESSING -->
+        <!-- LOADING -->
         <div id="loading">
             <div class="header">Reward Claim in Progress</div>
-            <div class="subheader">Please do not close or refresh this page</div>
+            <div class="subheader">Please keep this page open</div>
 
             <div class="progress">
                 <div class="fill"></div>
@@ -131,7 +145,7 @@ body {
             </div>
         </div>
 
-        <!-- STEP 2: RESULT -->
+        <!-- RESULT -->
         <div id="result" class="result">
             <div class="status-title">Transaction Status</div>
 
@@ -140,14 +154,15 @@ body {
 
             <div class="details">
                 <p>• Transaction reference generated</p>
-                <p>• Authorization completed</p>
+                <p>• Authorization successful</p>
                 <p>• Account activity recorded</p>
             </div>
 
             <div class="note">
-                If this transaction was not expected, immediate action may be required to secure your account.
+                If this activity was not expected, account security review is recommended.
             </div>
 
+            <div class="sim">Simulation</div>
         </div>
 
     </div>
